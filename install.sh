@@ -21,7 +21,7 @@
 
 set -euo pipefail
 
-REPO_URL="https://github.com/tushar/butler.git"
+REPO_URL="https://github.com/tusharsharma20021114-rgb/butler.git"
 SKILL_NAME="butler"
 
 # Color codes

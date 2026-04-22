@@ -6,7 +6,7 @@ compatibility: "Requires Python 3.10+ for scripts. Works with any skills-compati
 metadata:
   author: tushar
   version: "1.1.0"
-  repository: "https://github.com/tushar/butler"
+  repository: "https://github.com/tusharsharma20021114-rgb/butler"
   platforms:
     - claude-code
     - opencode
