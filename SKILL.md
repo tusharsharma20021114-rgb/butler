@@ -2,11 +2,19 @@
 name: butler
 description: "Personal butler assistant for task management, daily planning, email drafting, file organization, research summarization, decision support, and workflow automation. Use when the user asks for help managing tasks or to-do lists, creating a daily plan or schedule, drafting emails or professional messages, organizing files or projects, researching and summarizing topics, making decisions with structured analysis, or automating repetitive workflows. Do NOT use for coding tasks, debugging, or technical implementation — use only for productivity, planning, communication, and organizational tasks."
 license: MIT
-compatibility: "Requires Python 3.10+ for scripts. Works with any skills-compatible agent including Claude Code, GitHub Copilot, Cursor, Windsurf, and Gemini CLI."
+compatibility: "Requires Python 3.10+ for scripts. Works with any skills-compatible agent: Claude Code, OpenCode, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, and Windsurf."
 metadata:
   author: tushar
-  version: "1.0.0"
+  version: "1.1.0"
   repository: "https://github.com/tushar/butler"
+  platforms:
+    - claude-code
+    - opencode
+    - openai-codex
+    - github-copilot
+    - gemini-cli
+    - cursor
+    - windsurf
 ---
 
 # Butler — Your Personal AI Assistant

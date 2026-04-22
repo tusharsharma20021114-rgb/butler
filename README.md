@@ -10,9 +10,10 @@
     <a href="#contributing">Contribute</a>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/Agent_Skills-1.0-blue?style=flat-square" alt="Agent Skills 1.0">
+    <img src="https://img.shields.io/badge/Agent_Skills-1.1-blue?style=flat-square" alt="Agent Skills 1.1">
     <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License">
     <img src="https://img.shields.io/badge/Python-3.10+-yellow?style=flat-square" alt="Python 3.10+">
+    <img src="https://img.shields.io/badge/Platforms-7-purple?style=flat-square" alt="7 Platforms">
   </p>
 </p>
 
@@ -20,38 +21,164 @@
 
 ## What is Butler?
 
-Butler is an **open-source [Agent Skill](https://agentskills.io)** that transforms any compatible AI coding agent into a personal productivity assistant. Just clone it into your project wnd your AI agent gets 7 new superpowers.
+Butler is an **open-source [Agent Skill](https://agentskills.io)** that transforms any compatible AI coding agent into a personal productivity assistant. Just clone it into your project and your AI agent gets 7 new superpowers.
 
-**Works with:** Claude Code · GitHub Copilot · Cursor · Windsurf · Gemini CLI · and any skills-compatible agent.
+**Works with:** Claude Code · OpenCode · OpenAI Codex · GitHub Copilot · Gemini CLI · Cursor · Windsurf
 
 ## Installation
 
-### Quick Install (Any Platform)
+### 🚀 One-Line Install (Auto-Detect)
 
 ```bash
-# Clone directly into your project's skills directory
+curl -fsSL https://raw.githubusercontent.com/tushar/butler/main/install.sh | bash
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/tushar/butler.git /tmp/butler-install
+bash /tmp/butler-install/install.sh
+```
+
+The installer **auto-detects** which AI agents you have and installs butler to the right directory.
+
+### 📋 Platform-Specific Install
+
+<table>
+<tr>
+<th>Platform</th>
+<th>Local (Project)</th>
+<th>Global (All Projects)</th>
+</tr>
+<tr>
+<td><strong>Claude Code</strong></td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git .claude/skills/butler
+```
+</td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git ~/.claude/skills/butler
+```
+</td>
+</tr>
+<tr>
+<td><strong>OpenCode</strong></td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git .opencode/skills/butler
+```
+</td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git ~/.config/opencode/skills/butler
+```
+</td>
+</tr>
+<tr>
+<td><strong>OpenAI Codex</strong></td>
+<td>
+
+```bash
 git clone https://github.com/tushar/butler.git .agents/skills/butler
 ```
-
-### Platform-Specific Paths
-
-| Platform | Install Path |
-|----------|-------------|
-| **GitHub Copilot** | `.agents/skills/butler/` |
-| **Claude Code** | `.claude/skills/butler/` |
-| **Gemini CLI** | `.gemini/skills/butler/` |
-| **Cursor** | `.cursor/skills/butler/` |
-| **Windsurf** | `.windsurf/skills/butler/` |
-
-### Global Install (Available in All Projects)
+> Also create an `AGENTS.md` — see [Codex Setup](#codex-setup) below.
+</td>
+<td>
 
 ```bash
-# For Claude Code (global)
-git clone https://github.com/tushar/butler.git ~/.claude/skills/butler
+git clone https://github.com/tushar/butler.git ~/.codex/skills/butler
+```
+</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot</strong></td>
+<td>
 
-# For Gemini CLI (global)
+```bash
+git clone https://github.com/tushar/butler.git .agents/skills/butler
+```
+</td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git ~/.agents/skills/butler
+```
+</td>
+</tr>
+<tr>
+<td><strong>Gemini CLI</strong></td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git .gemini/skills/butler
+```
+</td>
+<td>
+
+```bash
 git clone https://github.com/tushar/butler.git ~/.gemini/skills/butler
 ```
+</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git .cursor/skills/butler
+```
+</td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git ~/.cursor/skills/butler
+```
+</td>
+</tr>
+<tr>
+<td><strong>Windsurf</strong></td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git .windsurf/skills/butler
+```
+</td>
+<td>
+
+```bash
+git clone https://github.com/tushar/butler.git ~/.windsurf/skills/butler
+```
+</td>
+</tr>
+</table>
+
+### 🔥 Install for ALL Platforms at Once
+
+```bash
+bash install.sh --all
+```
+
+### Codex Setup
+
+OpenAI Codex uses `AGENTS.md` to discover skills. After installing butler, create or update your project's `AGENTS.md`:
+
+```markdown
+# AGENTS.md
+
+## Skills
+
+### Butler
+This project uses the [butler](.agents/skills/butler/SKILL.md) skill for personal productivity tasks.
+When the user asks about task management, daily planning, email drafting, file organization,
+research summarization, decision making, or workflow automation, load and follow the butler skill.
+```
+
+> **Tip:** The `install.sh --platform codex` command does this automatically.
 
 ### Verify Installation
 
@@ -59,7 +186,7 @@ In your AI agent, type:
 ```
 /skills
 ```
-You should see `butler` in the list. Then try:
+You should see `butler` listed. Then try:
 ```
 Help me plan my day
 ```
@@ -123,11 +250,24 @@ Automate repetitive multi-step workflows.
 "Create a reusable workflow for our release process"
 ```
 
+## Platform Compatibility
+
+| Feature | Claude Code | OpenCode | Codex | Copilot | Gemini CLI | Cursor | Windsurf |
+|---------|:---------:|:--------:|:-----:|:-------:|:----------:|:------:|:--------:|
+| SKILL.md Discovery | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Progressive Disclosure | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Script Execution | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Reference Loading | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| AGENTS.md Support | — | ✅ | ✅ | — | — | — | — |
+| Global Install | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
 ## Project Structure
 
 ```
 butler/
 ├── SKILL.md                    # Core skill (Agent Skills format)
+├── AGENTS.md                   # Codex/OpenCode compatibility
+├── install.sh                  # Universal auto-installer
 ├── scripts/
 │   ├── task-tracker.py         # Task management CLI
 │   ├── daily-planner.py        # Daily plan generator
@@ -159,6 +299,8 @@ Butler follows the **[Agent Skills](https://agentskills.io) open standard**:
 2. **Activation**: When you ask a productivity-related question, the agent matches it to Butler's description and loads the full skill instructions.
 3. **Execution**: The agent follows Butler's step-by-step procedures, using the bundled scripts for deterministic tasks and reference docs for deep knowledge.
 4. **Progressive Disclosure**: Scripts, references, and assets are only loaded when needed — keeping your context window efficient.
+
+> **Codex/OpenCode Bonus**: These platforms also read `AGENTS.md`, which provides an additional activation path for butler. The installer creates this file automatically.
 
 ## Using Scripts Standalone
 
@@ -198,6 +340,7 @@ Contributions are welcome! Here's how:
 - 🔧 **New scripts**: Additional productivity tools
 - 📚 **Reference docs**: More frameworks and methodologies
 - 🧪 **Test cases**: Evaluation prompts for skill quality
+- 🔌 **Platform support**: Improve compatibility with new agents
 
 ## License
 
